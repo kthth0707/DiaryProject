@@ -8,6 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var collectionViewDiary: UICollectionView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

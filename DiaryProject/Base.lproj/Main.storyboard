@@ -12,7 +12,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DiaryProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -59,6 +58,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="200"/>
+                                        <connections>
+                                            <outlet property="labelDate" destination="CmW-wF-Dqz" id="NBU-BX-W4h"/>
+                                            <outlet property="labelTitle" destination="kwg-mY-SYz" id="sGH-ZI-1By"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -83,6 +86,7 @@
                         <outlet property="collectionViewDiary" destination="xmx-oS-twy" id="Yfv-yT-Y4a"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="993" y="-204"/>
         </scene>
@@ -157,9 +161,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="일기 작성" id="4mi-OT-42W">
-                        <barButtonItem key="rightBarButtonItem" title="등록" id="DSu-Fp-CyQ"/>
+                        <barButtonItem key="rightBarButtonItem" title="등록" id="DSu-Fp-CyQ">
+                            <connections>
+                                <action selector="onClickregister:" destination="kla-Yc-fgG" id="kdb-nY-7Mn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonRegister" destination="DSu-Fp-CyQ" id="hQx-4p-VeT"/>
                         <outlet property="textFieldDate" destination="13E-el-JaU" id="o94-ML-cgs"/>
                         <outlet property="textTieldWrite" destination="WwQ-J4-5E6" id="KLG-Mf-hlH"/>
                         <outlet property="textViewWrite" destination="BTc-Ob-Kj0" id="jBV-Rc-7Wj"/>

@@ -26,12 +26,23 @@ class ViewController: UIViewController {
         self.configureCollectionView()
         self.loadDiaryList()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(editNotification(_:)), name: NSNotification.Name("editDiary"), object: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let writeDiaryViewController = segue.destination as? WriteDiaryViewController {
             writeDiaryViewController.delegate = self
         }
+    }
+    
+    @objc func editNotification(_ notifocation: Notification) {
+        guard let diary = notifocation.object as? Diary else { return }
+        guard let row = notifocation.userInfo?["indexPath.row"] as? Int else { return }
+        self.diaryList[row] = diary
+        self.diaryList = self.diaryList.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending
+        })
+        self.collectionViewDiary.reloadData()
     }
     
     private func configureCollectionView() {

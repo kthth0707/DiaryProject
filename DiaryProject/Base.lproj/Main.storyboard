@@ -220,11 +220,17 @@
         <!--Star View Controller-->
         <scene sceneID="gd4-AB-t8f">
             <objects>
-                <viewController id="HIK-bD-MlG" customClass="StarViewController" customModule="DiaryProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StarViewController" id="HIK-bD-MlG" customClass="StarViewController" customModule="DiaryProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5YI-6S-rzI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 즐겨찾기 목록이 없습니다 :)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxb-Hf-zXM">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fBG-M1-bN1">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -267,6 +273,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="80"/>
+                                        <connections>
+                                            <outlet property="labelDate" destination="t3t-gU-pGt" id="D54-C5-hXc"/>
+                                            <outlet property="labelTitle" destination="jvt-7A-avn" id="7kF-C6-cpg"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -274,13 +284,20 @@
                         <viewLayoutGuide key="safeArea" id="U63-d2-oIt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dxb-Hf-zXM" firstAttribute="leading" secondItem="U63-d2-oIt" secondAttribute="leading" id="038-dt-dIL"/>
                             <constraint firstItem="fBG-M1-bN1" firstAttribute="top" secondItem="U63-d2-oIt" secondAttribute="top" id="30p-0z-KU5"/>
+                            <constraint firstItem="dxb-Hf-zXM" firstAttribute="top" secondItem="U63-d2-oIt" secondAttribute="top" id="3H2-z9-Kiw"/>
+                            <constraint firstItem="U63-d2-oIt" firstAttribute="trailing" secondItem="dxb-Hf-zXM" secondAttribute="trailing" id="HN7-s5-PIH"/>
                             <constraint firstItem="U63-d2-oIt" firstAttribute="trailing" secondItem="fBG-M1-bN1" secondAttribute="trailing" id="HkU-yf-0JF"/>
                             <constraint firstItem="U63-d2-oIt" firstAttribute="bottom" secondItem="fBG-M1-bN1" secondAttribute="bottom" id="I6l-nu-O3q"/>
                             <constraint firstItem="fBG-M1-bN1" firstAttribute="leading" secondItem="U63-d2-oIt" secondAttribute="leading" id="UHZ-WC-qQe"/>
+                            <constraint firstItem="U63-d2-oIt" firstAttribute="bottom" secondItem="dxb-Hf-zXM" secondAttribute="bottom" id="tNm-nT-hRS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kFd-oe-XYW"/>
+                    <connections>
+                        <outlet property="collectionView" destination="fBG-M1-bN1" id="acN-Eh-ktf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Yh-qI-yp8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
